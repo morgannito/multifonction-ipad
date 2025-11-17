@@ -10,8 +10,9 @@ import Frises from './components/Frises/Frises'
 import Sac from './components/Sac/Sac'
 import Eleves from './components/Eleves/Eleves'
 import Notes from './components/Notes/Notes'
+import Cahier from './components/Cahier/Cahier'
 
-export type MiniApp = 'soundmeter' | 'timer' | 'timerbar' | 'pictos' | 'counter' | 'frises' | 'sac' | 'eleves' | 'notes' | null
+export type MiniApp = 'soundmeter' | 'timer' | 'timerbar' | 'pictos' | 'counter' | 'frises' | 'sac' | 'eleves' | 'notes' | 'cahier' | null
 
 interface AppInfo {
   id: MiniApp
@@ -75,6 +76,12 @@ const apps: AppInfo[] = [
     icon: '📝',
     description: 'Pense-bête pour la classe',
   },
+  {
+    id: 'cahier',
+    name: 'Cahier Seyes',
+    icon: '📓',
+    description: 'Cahier avec lignes réglées',
+  },
 ]
 
 function App() {
@@ -100,6 +107,8 @@ function App() {
         return <Eleves />
       case 'notes':
         return <Notes />
+      case 'cahier':
+        return <Cahier />
       default:
         return (
           <div className="empty-state">
