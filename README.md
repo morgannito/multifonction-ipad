@@ -171,6 +171,117 @@ Cahier virtuel avec lignes Seyes pour l'écriture en classe.
 
 **Technologie :** Canvas API pour le rendu des lignes Seyes avec textarea overlay
 
+### 🎡 Roue de la Fortune
+Roue animée pour tirage au sort visuel et ludique.
+
+**Fonctionnalités :**
+- 🎨 Roue personnalisable avec segments de couleurs
+- ✏️ Édition des noms de segments en direct
+- ➕ Ajout/suppression de segments (minimum 2)
+- 🎲 Animation de rotation réaliste avec ralentissement
+- 🔊 Sons de cliquetis pendant la rotation (Web Audio API)
+- 📜 Historique des 10 derniers tirages
+- 🎯 Détection automatique du gagnant
+- 🎨 10 couleurs vives prédéfinies
+
+**Cas d'usage :**
+- ✅ Tirage au sort d'élèves ou de groupes
+- ✅ Choix aléatoire d'activités
+- ✅ Jeux pédagogiques
+- ✅ Sélection de tâches ou responsabilités
+
+**Technologie :** Canvas API pour le dessin de la roue + animation JavaScript fluide
+
+### 📅 Planning de la Journée
+Emploi du temps visuel avec indicateur temps réel.
+
+**Fonctionnalités :**
+- 📊 Timeline horizontale de 8h à 17h
+- 🎨 8 catégories de matières avec couleurs :
+  - Français (bleu), Mathématiques (vert), Histoire/Géo (orange)
+  - Sciences (violet), Arts (rose), Sport (rouge)
+  - Récréation (vert clair), Autre (gris)
+- 🕐 Indicateur "Maintenant" en temps réel (ligne rouge animée)
+- ℹ️ Affichage de l'activité en cours et suivante
+- ➕ Ajout d'activités personnalisées
+- 🗑️ Suppression d'activités au survol
+- 📋 Planning par défaut pré-rempli modifiable
+
+**Cas d'usage :**
+- ✅ Visualiser l'emploi du temps de la journée
+- ✅ Savoir où on en est dans la journée
+- ✅ Anticiper la prochaine activité
+- ✅ Adapter le planning en temps réel
+
+**Technologie :** React avec mise à jour automatique chaque minute
+
+### 🏆 Système de Points par Équipe
+Tableau de scores pour compétitions de classe.
+
+**Fonctionnalités :**
+- 👥 4 équipes par défaut (Rouge, Bleue, Verte, Jaune)
+- ✏️ Noms d'équipes modifiables
+- ➕➖ Boutons +1, +10, -1, -10 pour ajuster les points
+- 🔢 Saisie directe du nombre de points
+- 📊 Barres de progression animées
+- 🥇🥈🥉 Podium des 3 premiers avec médailles
+- 🎉 Animation du gagnant avec overlay plein écran
+- 💾 Sauvegarde automatique (localStorage)
+- 📈 Statistiques : total points, équipe en tête, écart
+
+**Cas d'usage :**
+- ✅ Compétitions entre groupes/équipes
+- ✅ Système de récompenses collectif
+- ✅ Challenges hebdomadaires
+- ✅ Motivation et émulation positive
+
+**Technologie :** React avec localStorage + animations CSS
+
+### 👥 Générateur de Groupes
+Création automatique de groupes aléatoires.
+
+**Fonctionnalités :**
+- 📝 Liste d'élèves personnalisable
+- ➕ Ajout individuel ou import multiple (ligne par ligne)
+- 🎲 Algorithme de mélange aléatoire (Fisher-Yates)
+- ⚙️ Deux modes de génération :
+  - Par nombre de groupes (divise équitablement)
+  - Par taille de groupe (fixe le nombre d'élèves par groupe)
+- 🎨 Chaque groupe a une couleur distincte
+- 📋 Affichage en grille avec numérotation
+- 💾 Export en fichier TXT
+- 💾 Sauvegarde de la liste d'élèves (localStorage)
+
+**Cas d'usage :**
+- ✅ Former des groupes de travail aléatoires
+- ✅ Éviter les regroupements habituels
+- ✅ Créer des binômes rapidement
+- ✅ Organisation d'ateliers tournants
+
+**Technologie :** React avec algorithme de mélange aléatoire
+
+### 📱 Générateur de QR Code
+Créez rapidement des QR codes à scanner.
+
+**Fonctionnalités :**
+- 🔗 **Mode URL** : Sites web, vidéos, formulaires Google...
+- 📝 **Mode Texte** : Messages, consignes, codes d'accès...
+- 📶 **Mode WiFi** : Connexion automatique au réseau WiFi (SSID, mot de passe, type de sécurité)
+- 📏 Taille ajustable (150px à 500px)
+- 💾 Téléchargement en PNG
+- 🖨️ Impression directe optimisée
+- 💡 Exemples d'utilisation intégrés
+- 🌐 Génération via API externe (qrserver.com)
+
+**Cas d'usage :**
+- ✅ Partager des liens vers ressources pédagogiques
+- ✅ Accès rapide aux quiz en ligne (Kahoot, Quizlet...)
+- ✅ Connexion au WiFi de la classe
+- ✅ Instructions ou consignes d'activités
+- ✅ Codes pour jeux pédagogiques
+
+**Technologie :** API externe QR Code + Canvas pour affichage
+
 ## 📋 Prérequis
 
 ### Pour le déploiement (enseignant)
@@ -499,6 +610,6 @@ Merci aux enseignants qui testent et améliorent cet outil pédagogique !
 
 ---
 
-**Version :** 2.1.0
+**Version :** 3.0.0
 **Dernière mise à jour :** 2025-11-17
 **Technologies :** React + TypeScript + Docker + Web Audio API + Canvas API

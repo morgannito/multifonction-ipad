@@ -11,8 +11,13 @@ import Sac from './components/Sac/Sac'
 import Eleves from './components/Eleves/Eleves'
 import Notes from './components/Notes/Notes'
 import Cahier from './components/Cahier/Cahier'
+import Roue from './components/Roue/Roue'
+import Planning from './components/Planning/Planning'
+import Points from './components/Points/Points'
+import Groupes from './components/Groupes/Groupes'
+import QRCode from './components/QRCode/QRCode'
 
-export type MiniApp = 'soundmeter' | 'timer' | 'timerbar' | 'pictos' | 'counter' | 'frises' | 'sac' | 'eleves' | 'notes' | 'cahier' | null
+export type MiniApp = 'soundmeter' | 'timer' | 'timerbar' | 'pictos' | 'counter' | 'frises' | 'sac' | 'eleves' | 'notes' | 'cahier' | 'roue' | 'planning' | 'points' | 'groupes' | 'qrcode' | null
 
 interface AppInfo {
   id: MiniApp
@@ -82,6 +87,36 @@ const apps: AppInfo[] = [
     icon: '📓',
     description: 'Cahier avec lignes réglées',
   },
+  {
+    id: 'roue',
+    name: 'Roue Fortune',
+    icon: '🎡',
+    description: 'Roue pour tirage au sort',
+  },
+  {
+    id: 'planning',
+    name: 'Planning',
+    icon: '📅',
+    description: 'Emploi du temps visuel',
+  },
+  {
+    id: 'points',
+    name: 'Points Équipes',
+    icon: '🏆',
+    description: 'Score par équipe',
+  },
+  {
+    id: 'groupes',
+    name: 'Groupes',
+    icon: '👥',
+    description: 'Créer des groupes aléatoires',
+  },
+  {
+    id: 'qrcode',
+    name: 'QR Code',
+    icon: '📱',
+    description: 'Générer des QR codes',
+  },
 ]
 
 function App() {
@@ -109,6 +144,16 @@ function App() {
         return <Notes />
       case 'cahier':
         return <Cahier />
+      case 'roue':
+        return <Roue />
+      case 'planning':
+        return <Planning />
+      case 'points':
+        return <Points />
+      case 'groupes':
+        return <Groupes />
+      case 'qrcode':
+        return <QRCode />
       default:
         return (
           <div className="empty-state">

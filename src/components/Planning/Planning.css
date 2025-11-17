@@ -1,0 +1,362 @@
+.planning-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.planning-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.planning-header h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.planning-header p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.planning-status {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.planning-clock {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  padding: 15px 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.planning-current {
+  padding: 15px 25px;
+  background: white;
+  border-radius: 12px;
+  border-left: 6px solid #3b82f6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+}
+
+.planning-current-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 5px;
+}
+
+.planning-current-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 5px;
+}
+
+.planning-current-time {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.planning-next {
+  padding: 15px 25px;
+  background: #fef3c7;
+  border-radius: 12px;
+  border-left: 6px solid #f59e0b;
+  min-width: 200px;
+}
+
+.planning-next-label {
+  font-size: 0.85rem;
+  color: #92400e;
+  margin-bottom: 5px;
+}
+
+.planning-next-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #b45309;
+  margin-bottom: 5px;
+}
+
+.planning-next-time {
+  font-size: 0.95rem;
+  color: #92400e;
+}
+
+.planning-done {
+  padding: 15px 25px;
+  background: #d1fae5;
+  border-radius: 12px;
+  border-left: 6px solid #10b981;
+}
+
+.planning-done-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #065f46;
+}
+
+.planning-timeline {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  position: relative;
+  min-height: 200px;
+}
+
+.planning-timeline-hours {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.planning-hour-mark {
+  flex: 1;
+  position: relative;
+}
+
+.planning-hour-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 150px;
+  background: #e5e7eb;
+}
+
+.planning-hour-label {
+  position: absolute;
+  left: -20px;
+  top: -25px;
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.planning-activities {
+  position: relative;
+  height: 100px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.planning-activity {
+  position: absolute;
+  top: 10px;
+  height: 80px;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.planning-activity:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.planning-activity-name {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.planning-activity-time {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.planning-activity-remove {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.planning-activity:hover .planning-activity-remove {
+  opacity: 1;
+}
+
+.planning-activity-remove:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.planning-now-indicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  margin-left: -1.5px;
+  z-index: 10;
+}
+
+.planning-now-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.planning-now-label {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ef4444;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.planning-controls {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.planning-add-btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.planning-add-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.planning-add-form {
+  margin-top: 15px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.planning-add-form input,
+.planning-add-form select {
+  padding: 10px 15px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.planning-add-form input:focus,
+.planning-add-form select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.planning-add-form button {
+  padding: 10px 25px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.planning-add-form button:hover {
+  background: #059669;
+}
+
+.planning-legend {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.planning-legend h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #1f2937;
+}
+
+.planning-legend-items {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.planning-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.planning-legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .planning-timeline {
+    overflow-x: auto;
+  }
+
+  .planning-activities {
+    min-width: 800px;
+  }
+
+  .planning-status {
+    flex-direction: column;
+  }
+
+  .planning-add-form {
+    flex-direction: column;
+  }
+}

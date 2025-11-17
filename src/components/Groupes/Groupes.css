@@ -1,0 +1,386 @@
+.groupes-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.groupes-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.groupes-header h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.groupes-header p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.groupes-content {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 20px;
+}
+
+.groupes-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.groupes-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.groupes-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #1f2937;
+}
+
+.groupes-add-student {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.groupes-add-student input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.groupes-add-student input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.groupes-add-student button {
+  padding: 10px 15px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.groupes-add-student button:hover:not(:disabled) {
+  background: #059669;
+}
+
+.groupes-add-student button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.groupes-bulk-btn {
+  width: 100%;
+  padding: 10px;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 10px;
+}
+
+.groupes-bulk-btn:hover {
+  background: #4b5563;
+}
+
+.groupes-bulk-input {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.groupes-bulk-input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.groupes-bulk-input textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.groupes-bulk-input button {
+  padding: 10px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.groupes-bulk-input button:hover {
+  background: #059669;
+}
+
+.groupes-students-list {
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.groupes-student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #f9fafb;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.groupes-student-item:hover {
+  background: #f3f4f6;
+}
+
+.groupes-student-item span {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.groupes-student-item button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.groupes-student-item button:hover {
+  background: #dc2626;
+}
+
+.groupes-empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 40px 20px;
+  font-size: 0.95rem;
+}
+
+.groupes-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.groupes-mode label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.groupes-mode label:hover {
+  background: #f3f4f6;
+}
+
+.groupes-mode input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.groupes-setting {
+  margin-bottom: 15px;
+}
+
+.groupes-setting label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.groupes-setting input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.groupes-setting input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.groupes-generate-btn,
+.groupes-clear-btn,
+.groupes-export-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 10px;
+}
+
+.groupes-generate-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.groupes-generate-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+.groupes-generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.groupes-clear-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.groupes-clear-btn:hover {
+  background: #d97706;
+}
+
+.groupes-export-btn {
+  background: #10b981;
+  color: white;
+}
+
+.groupes-export-btn:hover {
+  background: #059669;
+}
+
+.groupes-main {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+}
+
+.groupes-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+  color: #9ca3af;
+}
+
+.groupes-placeholder-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+.groupes-placeholder-text {
+  font-size: 1.2rem;
+}
+
+.groupes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.groupes-group {
+  background: white;
+  border: 3px solid;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.groupes-group:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.groupes-group-header {
+  padding: 15px;
+  color: white;
+  text-align: center;
+}
+
+.groupes-group-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.groupes-group-count {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.groupes-group-students {
+  padding: 15px;
+}
+
+.groupes-group-student {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.groupes-group-student:last-child {
+  border-bottom: none;
+}
+
+.groupes-group-student-number {
+  color: #9ca3af;
+  font-weight: 500;
+  min-width: 25px;
+}
+
+.groupes-group-student-name {
+  color: #374151;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .groupes-content {
+    grid-template-columns: 1fr;
+  }
+
+  .groupes-grid {
+    grid-template-columns: 1fr;
+  }
+}

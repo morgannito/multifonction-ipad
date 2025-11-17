@@ -1,5 +1,123 @@
 # 📝 Historique des Modifications
 
+## Version 3.0.0 - 2025-11-17
+
+### 🎉 Mise à jour MAJEURE : 5 Nouvelles Mini-Apps
+
+Ajout de 5 nouvelles applications complètes pour enrichir l'outil pédagogique.
+
+#### 🎡 Roue de la Fortune
+Roue animée pour tirage au sort visuel et ludique.
+
+**Fonctionnalités :**
+- Roue personnalisable avec segments de couleurs
+- Animation de rotation réaliste avec ralentissement progressif
+- Sons de cliquetis pendant la rotation (Web Audio API)
+- Édition en direct des segments
+- Ajout/suppression de segments (min 2)
+- Historique des 10 derniers tirages
+- Détection automatique du gagnant
+
+**Technique :**
+- Canvas API pour le rendu graphique de la roue
+- Animation JavaScript fluide avec easing
+- Web Audio API pour effets sonores
+
+**Fichiers :**
+- `src/components/Roue/Roue.tsx`
+- `src/components/Roue/Roue.css`
+
+#### 📅 Planning de la Journée
+Emploi du temps visuel avec indicateur temps réel.
+
+**Fonctionnalités :**
+- Timeline horizontale de 8h à 17h
+- 8 catégories de matières colorées
+- Indicateur "Maintenant" en temps réel (ligne rouge)
+- Affichage activité en cours et suivante
+- Ajout/suppression d'activités
+- Planning par défaut modifiable
+
+**Technique :**
+- React avec useEffect pour mise à jour temps réel (chaque minute)
+- Calcul de position basé sur l'heure
+- Planning par défaut pré-rempli
+
+**Fichiers :**
+- `src/components/Planning/Planning.tsx`
+- `src/components/Planning/Planning.css`
+
+#### 🏆 Système de Points par Équipe
+Tableau de scores pour compétitions de classe.
+
+**Fonctionnalités :**
+- 4 équipes par défaut (Rouge, Bleue, Verte, Jaune)
+- Boutons +1, +10, -1, -10 pour ajuster points
+- Saisie directe du nombre de points
+- Barres de progression animées
+- Podium des 3 premiers avec médailles
+- Animation plein écran du gagnant
+- Sauvegarde automatique (localStorage)
+- Statistiques en temps réel
+
+**Technique :**
+- React avec localStorage pour persistance
+- Animations CSS avancées
+- Overlay modal pour célébration du gagnant
+
+**Fichiers :**
+- `src/components/Points/Points.tsx`
+- `src/components/Points/Points.css`
+
+#### 👥 Générateur de Groupes
+Création automatique de groupes aléatoires.
+
+**Fonctionnalités :**
+- Liste d'élèves personnalisable
+- Import multiple (ligne par ligne)
+- Deux modes : par nombre de groupes ou par taille
+- Algorithme Fisher-Yates pour mélange aléatoire
+- Couleurs distinctes par groupe
+- Export en TXT
+- Sauvegarde liste élèves (localStorage)
+
+**Technique :**
+- Algorithme de mélange Fisher-Yates
+- React avec localStorage
+- Export via Blob API
+
+**Fichiers :**
+- `src/components/Groupes/Groupes.tsx`
+- `src/components/Groupes/Groupes.css`
+
+#### 📱 Générateur de QR Code
+Création rapide de QR codes.
+
+**Fonctionnalités :**
+- 3 modes : URL, Texte, WiFi
+- Mode WiFi avec SSID, mot de passe, type sécurité
+- Taille ajustable (150-500px)
+- Téléchargement PNG
+- Impression directe optimisée
+- Exemples d'utilisation intégrés
+
+**Technique :**
+- API externe qrserver.com pour génération
+- Interface à onglets pour les modes
+- Fonction print avec popup dédiée
+
+**Fichiers :**
+- `src/components/QRCode/QRCode.tsx`
+- `src/components/QRCode/QRCode.css`
+
+#### 📊 Statistiques version 3.0.0
+- **Total mini-apps** : 15 (10 → 15)
+- **Taille du build** : 209 KB JS (vs 182 KB en v2.1.0)
+- **Nouveaux fichiers** : 10 fichiers (5 .tsx + 5 .css)
+- **Lignes de code ajoutées** : ~3500 lignes
+
+---
+
 ## Version 2.1.0 - 2025-11-17
 
 ### 📓 Nouvelle Mini-App : Cahier Seyes
