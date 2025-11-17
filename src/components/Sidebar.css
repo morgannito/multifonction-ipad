@@ -1,0 +1,129 @@
+.sidebar {
+  width: 320px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.sidebar-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+.sidebar-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-left: 3px solid transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sidebar-item:hover {
+  background: var(--surface-hover);
+  transform: none;
+}
+
+.sidebar-item.active {
+  background: var(--surface-hover);
+  border-left-color: var(--primary);
+}
+
+.sidebar-icon {
+  font-size: 2rem;
+  min-width: 2rem;
+}
+
+.sidebar-text {
+  flex: 1;
+}
+
+.sidebar-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.sidebar-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 30vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-header {
+    padding: 1rem;
+  }
+
+  .sidebar-title {
+    font-size: 1.25rem;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    overflow-x: auto;
+    padding: 0.5rem;
+  }
+
+  .sidebar-item {
+    flex-direction: column;
+    min-width: 120px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .sidebar-icon {
+    font-size: 2.5rem;
+  }
+
+  .sidebar-text {
+    text-align: center;
+  }
+
+  .sidebar-description {
+    font-size: 0.75rem;
+  }
+}
