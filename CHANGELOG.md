@@ -1,5 +1,57 @@
 # 📝 Historique des Modifications
 
+## Version 1.2.0 - 2025-11-17
+
+### ⏱️ Nouvelle Fonctionnalité : Timers Multiples
+
+#### ✨ Nouvelle Mini-App : Timers
+
+Ajout d'un système de gestion de timers multiples pour les évaluations et activités chronométrées en classe.
+
+**Fonctionnalités principales :**
+- ⏰ **Interface horloge circulaire** : Visualisation intuitive du temps
+- 🎯 **Multiples timers** : Créez autant de timers que nécessaire
+- 📌 **Système d'épinglage** : Gardez les timers importants en haut
+- ✏️ **Noms personnalisables** : Identifiez vos groupes facilement
+- 🔔 **Alarme sonore** : Notification automatique à la fin
+
+**Préréglages disponibles :**
+- 1, 3, 5, 10, 15, 20, 30, 45, 60 minutes
+- Durée personnalisée possible
+
+**Contrôles :**
+- ▶️ Démarrer / ⏸️ Pause
+- 🔄 Réinitialiser
+- 🗑️ Supprimer
+
+**Code couleur intelligent :**
+- 🔵 Bleu : > 50% du temps restant
+- 🟡 Jaune : 20-50% du temps
+- 🟠 Orange : < 20% du temps
+- 🔴 Rouge : Terminé (avec animation)
+
+**Cas d'usage parfaits :**
+- Évaluations nationales (CP, CE1, etc.)
+- Ateliers par groupes avec temps différents
+- Activités de rotation en classe
+- Examens avec exercices chronométrés
+- Gestion de la récréation
+
+**Technique :**
+- Custom hook `useTimers` pour la gestion d'état
+- Mise à jour synchronisée toutes les secondes
+- Web Audio API pour alarme sonore personnalisée
+- Persistance locale de l'état des timers
+- Animation SVG pour horloge circulaire
+
+#### 📚 Documentation
+
+- Guide complet dans README.md
+- Exemples d'utilisation
+- Astuces pédagogiques
+
+---
+
 ## Version 1.1.0 - 2025-11-17
 
 ### 🎯 Amélioration Majeure : Sensibilité du Sonomètre

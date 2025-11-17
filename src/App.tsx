@@ -2,8 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import Sidebar from './components/Sidebar'
 import SoundMeter from './components/SoundMeter/SoundMeter'
+import Timer from './components/Timer/Timer'
 
-export type MiniApp = 'soundmeter' | null
+export type MiniApp = 'soundmeter' | 'timer' | null
 
 interface AppInfo {
   id: MiniApp
@@ -19,6 +20,12 @@ const apps: AppInfo[] = [
     icon: '🔊',
     description: 'Mesure le niveau sonore en classe',
   },
+  {
+    id: 'timer',
+    name: 'Timers',
+    icon: '⏱️',
+    description: 'Gérez plusieurs timers pour vos groupes',
+  },
 ]
 
 function App() {
@@ -28,6 +35,8 @@ function App() {
     switch (selectedApp) {
       case 'soundmeter':
         return <SoundMeter />
+      case 'timer':
+        return <Timer />
       default:
         return (
           <div className="empty-state">

@@ -28,6 +28,35 @@ Outil pour mesurer le niveau sonore en classe en temps réel.
 
 **Technologie :** Utilise la Web Audio API avec calcul RMS logarithmique pour une mesure précise
 
+### ⏱️ Timers
+Gérez plusieurs timers indépendants pour vos différents groupes d'élèves ou activités chronométrées.
+
+**Fonctionnalités :**
+- ⏰ Interface horloge circulaire intuitive
+- 📌 Épinglez les timers importants en haut de la liste
+- 🎯 Préréglages rapides : 1, 3, 5, 10, 15, 20, 30, 45, 60 minutes
+- 🔢 Création personnalisée avec durée au choix
+- ✏️ Noms personnalisables pour chaque timer (ex: "Groupe A", "Exercice 1")
+- ⏸️ Pause et reprise à tout moment
+- 🔄 Réinitialisation rapide
+- 🔔 Alarme sonore automatique à la fin
+- 🎨 Code couleur selon le temps restant :
+  - 🔵 **Bleu** : Plus de 50% du temps
+  - 🟡 **Jaune** : Entre 20% et 50%
+  - 🟠 **Orange** : Moins de 20%
+  - 🔴 **Rouge** : Terminé !
+- 📊 Affichage simultané de plusieurs timers
+- 💾 Gestion automatique de l'état de chaque timer
+
+**Cas d'usage :**
+- ✅ Évaluations nationales chronométrées
+- ✅ Ateliers par groupes avec temps différents
+- ✅ Activités de rotation
+- ✅ Examens avec temps dédié par exercice
+- ✅ Minuteur pour récréation/pause
+
+**Technologie :** React avec hooks personnalisés et Web Audio API pour l'alarme
+
 ## 📋 Prérequis
 
 ### Pour le déploiement (enseignant)
