@@ -16,16 +16,17 @@ Application web multi-fonctions pour iPad regroupant plusieurs petites applicati
 Outil pour mesurer le niveau sonore en classe en temps réel.
 
 **Fonctionnalités :**
-- 📊 Mesure en décibels (dB) en temps réel
+- 📊 Mesure en décibels (dB) en temps réel avec haute sensibilité
 - 🎨 Indicateur visuel avec code couleur :
-  - 🟢 **Vert** : Calme (< 50 dB) - Idéal pour travailler
-  - 🟡 **Jaune** : Modéré (50-70 dB) - Attention au bruit
-  - 🔴 **Rouge** : Bruyant (> 70 dB) - Trop de bruit !
-- 📈 Barre de progression animée
+  - 🟢 **Vert** : Calme (< 40 dB) - Silence ou chuchotements
+  - 🟡 **Jaune** : Modéré (40-65 dB) - Conversation normale
+  - 🔴 **Rouge** : Bruyant (> 65 dB) - Trop de bruit !
+- 📈 Barre de progression animée ultra-réactive
 - ⏯️ Boutons démarrer/arrêter intuitifs
+- 🎛️ Amplification du signal (x2.5) pour meilleure détection
 - 📚 Guide pédagogique des niveaux sonores
 
-**Technologie :** Utilise la Web Audio API pour accéder au microphone de l'iPad
+**Technologie :** Utilise la Web Audio API avec calcul RMS logarithmique pour une mesure précise
 
 ## 📋 Prérequis
 
@@ -202,14 +203,29 @@ multifonction-ipad/
 Modifier dans `src/hooks/useAudioMeter.ts:27` :
 ```typescript
 const updateNoiseLevel = useCallback((db: number) => {
-  if (db < 50) {          // ← Seuil calme
+  if (db < 40) {          // ← Seuil calme (défaut: 40 dB)
     setNoiseLevel('quiet')
-  } else if (db < 70) {   // ← Seuil modéré
+  } else if (db < 65) {   // ← Seuil modéré (défaut: 65 dB)
     setNoiseLevel('moderate')
   } else {
     setNoiseLevel('loud')
   }
 }, [])
+```
+
+### Ajuster la sensibilité du sonomètre
+
+Modifier dans `src/hooks/useAudioMeter.ts:93` :
+```typescript
+// Changer l'amplification (défaut: 2.5)
+gainNode.gain.value = 3.0 // Plus sensible
+// ou
+gainNode.gain.value = 2.0 // Moins sensible
+
+// Changer la réactivité (défaut: 0.3)
+analyser.smoothingTimeConstant = 0.2 // Plus réactif
+// ou
+analyser.smoothingTimeConstant = 0.5 // Plus lisse
 ```
 
 ### Personnaliser les couleurs

@@ -123,15 +123,18 @@ function SoundMeter() {
           <h3>📚 Guide des niveaux sonores</h3>
           <ul>
             <li>
-              <strong style={{ color: '#22c55e' }}>Calme (&lt; 50 dB)</strong> : Idéal pour le travail en classe
+              <strong style={{ color: '#22c55e' }}>Calme (&lt; 40 dB)</strong> : Silence ou chuchotements - Idéal pour le travail
             </li>
             <li>
-              <strong style={{ color: '#eab308' }}>Modéré (50-70 dB)</strong> : Attention au niveau sonore
+              <strong style={{ color: '#eab308' }}>Modéré (40-65 dB)</strong> : Conversation normale - Attention au volume
             </li>
             <li>
-              <strong style={{ color: '#ef4444' }}>Bruyant (&gt; 70 dB)</strong> : Trop de bruit, baissez le volume !
+              <strong style={{ color: '#ef4444' }}>Bruyant (&gt; 65 dB)</strong> : Trop de bruit - Baissez le volume !
             </li>
           </ul>
+          <p style={{ marginTop: '1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+            💡 <strong>Astuce :</strong> Le sonomètre est maintenant plus sensible et réagit plus rapidement aux changements de volume.
+          </p>
         </div>
       </div>
     </div>
