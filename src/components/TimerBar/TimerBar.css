@@ -1,0 +1,395 @@
+.timerbar-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.timerbar-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.timerbar-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.timerbar-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn-create-timerbar {
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary), #2563eb);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.2s;
+}
+
+.btn-create-timerbar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Formulaire */
+.create-timerbar-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.create-timerbar-form h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--text);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn-preset {
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.btn-preset:hover {
+  border-color: var(--primary);
+  background: var(--surface-hover);
+}
+
+.btn-preset.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-submit,
+.btn-cancel {
+  flex: 1;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--success), #16a34a);
+  color: white;
+}
+
+.btn-cancel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* Préréglages rapides */
+.quick-presets {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.quick-presets p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Liste des timers */
+.timerbars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timerbar-item {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
+
+.timerbar-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.timerbar-item.finished {
+  border-color: var(--success);
+  animation: pulse-bar 2s ease-in-out infinite;
+}
+
+@keyframes pulse-bar {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(34, 197, 94, 0);
+  }
+}
+
+.timerbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.timerbar-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.timerbar-name {
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: var(--background);
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+.timerbar-name:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.timerbar-time-display {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.time-remaining {
+  color: var(--primary);
+}
+
+.time-separator {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.time-total {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+.timerbar-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn-control {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-play {
+  background: linear-gradient(135deg, var(--success), #16a34a);
+}
+
+.btn-play:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-pause {
+  background: linear-gradient(135deg, var(--warning), #ca8a04);
+}
+
+.btn-reset {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.btn-delete {
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.btn-control:hover:not(:disabled) {
+  transform: scale(1.1);
+}
+
+/* Barre de progression */
+.progress-bar-container {
+  width: 100%;
+  height: 50px;
+  background: var(--background);
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid var(--border);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  border-radius: 23px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.finished-label {
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  animation: bounce-label 0.5s;
+}
+
+@keyframes bounce-label {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Empty state */
+.empty-state-timerbar {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+.empty-state-timerbar .empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state-timerbar p {
+  margin: 0.5rem 0;
+}
+
+.empty-state-timerbar .hint {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Info box */
+.timerbar-info-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+
+.timerbar-info-box h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text);
+}
+
+.timerbar-info-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.timerbar-info-box li {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timerbar-app {
+    padding: 1rem;
+  }
+
+  .timerbar-title {
+    font-size: 2rem;
+  }
+
+  .timerbar-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .timerbar-controls {
+    justify-content: center;
+  }
+
+  .progress-bar-container {
+    height: 40px;
+  }
+}

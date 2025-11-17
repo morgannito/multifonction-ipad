@@ -1,0 +1,18 @@
+.eleves-app { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.eleves-title { font-size: 2.5rem; text-align: center; margin-bottom: 0.5rem; color: var(--text); font-weight: 700; }
+.eleves-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 2rem; }
+.add-student { display: flex; gap: 1rem; max-width: 500px; margin: 0 auto 2rem; }
+.add-student input { flex: 1; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); font-size: 1rem; }
+.add-student button { padding: 0.75rem 1.5rem; background: var(--success); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn-random { display: block; margin: 0 auto 2rem; padding: 1.25rem 2.5rem; background: linear-gradient(135deg, var(--primary), #2563eb); color: white; border: none; border-radius: 12px; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(59,130,246,0.3); }
+.btn-random:disabled { opacity: 0.5; cursor: not-allowed; }
+.students-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+.student-card { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.3s; }
+.student-card.selected-student { border-color: var(--success); background: rgba(34,197,94,0.1); transform: scale(1.1); box-shadow: 0 8px 24px rgba(34,197,94,0.3); animation: pulse-student 0.5s infinite; }
+@keyframes pulse-student { 0%, 100% { transform: scale(1.1); } 50% { transform: scale(1.15); } }
+.student-card h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; color: var(--text); }
+.stars { font-size: 1.2rem; margin: 0.5rem 0; min-height: 1.5rem; }
+.student-actions { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+.student-actions button { padding: 0.5rem 0.75rem; border: none; border-radius: 6px; cursor: pointer; background: var(--surface); border: 1px solid var(--border); }
+.student-actions button:hover { background: var(--surface-hover); }
+.empty-eleves { text-align: center; padding: 3rem; color: var(--text-secondary); }

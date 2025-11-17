@@ -1,0 +1,22 @@
+.sac-app { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.sac-title { font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
+.sac-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 2rem; }
+.required-items-display { background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; padding: 3rem 2rem; border-radius: 20px; margin-bottom: 2rem; text-align: center; box-shadow: 0 10px 40px rgba(59,130,246,0.3); }
+.required-items-display h2 { font-size: 2rem; margin: 0 0 2rem 0; }
+.items-grid-big { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem; }
+.item-big { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem 1rem; transition: transform 0.2s; }
+.item-big:hover { transform: scale(1.05); }
+.item-icon-big { font-size: 4rem; margin-bottom: 0.5rem; }
+.item-name-big { font-size: 1.2rem; font-weight: 600; }
+.manage-section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
+.manage-section h3 { margin: 0 0 1.5rem 0; }
+.add-item-form { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+.add-item-form select { padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: var(--background); font-size: 1.5rem; }
+.add-item-form input { flex: 1; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: var(--background); color: var(--text); }
+.add-item-form button { padding: 0.75rem 1.5rem; background: var(--success); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.items-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.item-row { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--background); border: 2px solid var(--border); border-radius: 10px; }
+.item-row.required { border-color: var(--success); }
+.item-icon-small { font-size: 2rem; }
+.item-name { flex: 1; font-weight: 600; }
+.item-row button { padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; background: var(--surface); border: 1px solid var(--border); }

@@ -1,0 +1,23 @@
+.notes-app { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.notes-title { font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
+.notes-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 2rem; }
+.btn-add-note { display: block; margin: 0 auto 2rem; padding: 1rem 2rem; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; }
+.note-editor { background: var(--surface); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+.note-editor input, .note-editor textarea { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--background); color: var(--text); font-size: 1rem; }
+.editor-actions { display: flex; gap: 1rem; }
+.btn-save, .btn-cancel { flex: 1; padding: 0.75rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn-save { background: var(--success); color: white; }
+.btn-cancel { background: var(--surface); border: 1px solid var(--border); }
+.notes-section { margin-bottom: 2rem; }
+.notes-section h2 { margin-bottom: 1rem; }
+.notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+.note-card { position: relative; background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s; }
+.note-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.note-card.pinned { border-color: var(--primary); }
+.note-card h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+.note-card p { color: var(--text-secondary); margin: 0; line-height: 1.5; }
+.btn-pin { position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; font-size: 1.2rem; cursor: pointer; opacity: 0.5; }
+.btn-pin.active { opacity: 1; }
+.btn-delete-note { position: absolute; bottom: 0.5rem; right: 0.5rem; background: none; border: none; font-size: 1.2rem; cursor: pointer; opacity: 0; }
+.note-card:hover .btn-delete-note { opacity: 1; }
+.empty-notes { text-align: center; padding: 3rem; color: var(--text-secondary); }

@@ -1,0 +1,18 @@
+.frises-app { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.frises-title { font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
+.frises-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 2rem; }
+.pattern-display { background: var(--surface); border: 3px solid var(--primary); border-radius: 16px; padding: 3rem 2rem; margin-bottom: 2rem; text-align: center; }
+.pattern-display h2 { margin: 0 0 2rem 0; font-size: 2rem; }
+.pattern-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 2rem; background: white; border-radius: 12px; }
+.pattern-item { font-size: 3rem; }
+.pattern-controls { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; }
+.control-group { display: flex; align-items: center; gap: 1rem; flex: 1; min-width: 200px; }
+.control-group label { font-weight: 600; }
+.control-group select { padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: var(--background); color: var(--text); font-size: 1rem; }
+.control-group input[type="range"] { flex: 1; }
+.patterns-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+.pattern-card { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s; }
+.pattern-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+.pattern-card.selected { border-color: var(--primary); background: rgba(59,130,246,0.1); }
+.pattern-preview { display: flex; justify-content: center; gap: 0.5rem; font-size: 2rem; margin-bottom: 0.5rem; }
+.pattern-name { font-weight: 600; color: var(--text); }
