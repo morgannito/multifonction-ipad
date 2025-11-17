@@ -57,6 +57,95 @@ Gérez plusieurs timers indépendants pour vos différents groupes d'élèves ou
 
 **Technologie :** React avec hooks personnalisés et Web Audio API pour l'alarme
 
+### 📊 Timer Bar
+Alternative visuelle aux timers circulaires avec affichage en barres de progression.
+
+**Fonctionnalités :**
+- 📏 Barres de progression horizontales
+- 🎨 Même code couleur que les Timers
+- ✏️ Noms modifiables en direct
+- ⏯️ Contrôles identiques (Play, Pause, Reset)
+- 📊 Affichage minimaliste et clair
+
+### 🎨 Pictogrammes
+Affichez visuellement les modalités de travail en classe.
+
+**Catégories disponibles :**
+- 👤 **Mode de travail** : Solo, Binôme, Groupe
+- 🤫 **Niveau sonore** : Silence, Chuchotements, Discussion
+- 🚶 **Déplacements** : Assis, Limités, Libres
+- 🙋 **Demande d'aide** : Autonomie, Autorisée, Enseignant seul
+- 📚 **Ressources** : Aucune, Livres, Toutes
+
+**Fonctionnalités :**
+- 🖥️ Mode plein écran pour projection
+- 🎯 Un picto par catégorie
+- 🎨 15 pictogrammes au total
+- 👀 Interface claire et visuelle
+
+### 🎲 Générateur
+Tirage au sort de nombres aléatoires avec animation.
+
+**Fonctionnalités :**
+- 🎰 Animation type machine à sous
+- 🎯 Préréglages : Dé (1-6), 1-10, 1-20, 1-100
+- ⚙️ Configuration min/max personnalisée
+- 📜 Historique des 10 derniers tirages
+- ⚡ Vitesse de tirage ajustable
+
+**Cas d'usage :**
+- Tirage au sort d'élèves (par numéro)
+- Jeux pédagogiques avec dés virtuels
+- Exercices aléatoires
+- Challenges avec nombres mystère
+
+### 📐 Frises
+Modèles de frises géométriques reproductibles.
+
+**Motifs disponibles :**
+- ⭕ Cercles
+- ⬛ Carrés
+- 🔺 Triangles
+- 🌈 Couleurs (Rouge, Jaune, Bleu)
+- 🎨 Formes mixtes
+- 🌈 Arc-en-ciel complet
+
+**Fonctionnalités :**
+- 🔄 Répétitions ajustables (1-10)
+- 📏 Affichage clair pour reproduction
+- 🎨 6 motifs prédéfinis
+- 📓 Parfait pour activités sur cahier seyes
+
+### 🎒 Affaires
+Liste visuelle des objets à apporter en classe.
+
+**Fonctionnalités :**
+- 📋 Affichage grand format avec icônes
+- ✅ Marquer objets requis/optionnels
+- ➕ Ajouter des objets personnalisés
+- 🎨 12 icônes disponibles
+- 👀 Interface claire pour les élèves
+
+### 👨‍🎓 Élèves
+Gestion de classe avec tirage au sort et récompenses.
+
+**Fonctionnalités :**
+- 📝 Liste des élèves avec noms
+- 🎲 Tirage au sort aléatoire
+- ⭐ Système d'étoiles/récompenses
+- 💾 Sauvegarde automatique (localStorage)
+- ✨ Animation lors du tirage
+
+### 📝 Notes
+Prise de notes rapide pour l'enseignant.
+
+**Fonctionnalités :**
+- 📌 Notes épinglables en priorité
+- ✏️ Édition simple et rapide
+- 💾 Sauvegarde automatique locale
+- 🗂️ Organisation par importance
+- 📄 Sans formatage avancé (simplicité)
+
 ## 📋 Prérequis
 
 ### Pour le déploiement (enseignant)
