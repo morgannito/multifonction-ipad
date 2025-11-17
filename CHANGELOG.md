@@ -1,5 +1,44 @@
 # 📝 Historique des Modifications
 
+## Version 2.1.0 - 2025-11-17
+
+### 📓 Nouvelle Mini-App : Cahier Seyes
+
+Ajout d'un cahier virtuel avec lignes Seyes pour l'écriture en classe.
+
+**Fonctionnalités principales :**
+- 📏 **Lignes Seyes authentiques** : 8px de hauteur avec 4 subdivisions de 2px
+- 📐 **Marge rouge optionnelle** : Marge gauche de 80px activable
+- ✏️ **Zone de texte superposée** : Écriture directe sur les lignes
+- 🎨 **Personnalisation complète** :
+  - 5 choix de polices (Arial, Times, Verdana, Cursive, Monospace)
+  - Taille de police ajustable (20-48px)
+  - Couleur de texte personnalisable
+  - Opacité des lignes réglable (0-100%)
+- 💾 **Export en image** : Sauvegarde en PNG
+- 🖨️ **Impression optimisée** : Fonction print sans interface
+- 📱 **Canvas responsive** : 800x1000px adapté à l'affichage
+
+**Cas d'usage :**
+- Créer des feuilles d'exercices personnalisées
+- Modèles de cahier pour écriture
+- Exercices de calligraphie
+- Feuilles lignées imprimables
+- Support pour travaux d'écriture
+
+**Technique :**
+- Canvas API pour le rendu précis des lignes Seyes
+- Textarea HTML avec position absolue pour l'édition
+- Grille verticale et horizontale conforme au standard Seyes
+- Export via `canvas.toDataURL()`
+- Media queries CSS pour impression sans interface
+
+**Fichiers ajoutés :**
+- `src/components/Cahier/Cahier.tsx`
+- `src/components/Cahier/Cahier.css`
+
+---
+
 ## Version 1.2.0 - 2025-11-17
 
 ### ⏱️ Nouvelle Fonctionnalité : Timers Multiples

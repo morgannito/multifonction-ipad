@@ -146,6 +146,31 @@ Prise de notes rapide pour l'enseignant.
 - 🗂️ Organisation par importance
 - 📄 Sans formatage avancé (simplicité)
 
+### 📓 Cahier Seyes
+Cahier virtuel avec lignes Seyes pour l'écriture en classe.
+
+**Fonctionnalités :**
+- 📏 Lignes Seyes authentiques (8px avec 4 subdivisions de 2px)
+- 📐 Marge rouge optionnelle (80px à gauche)
+- ✏️ Zone de texte superposée pour écriture directe
+- 🎨 Personnalisation complète :
+  - 5 choix de polices (Arial, Times, Verdana, Cursive, Monospace)
+  - Taille de police ajustable (20-48px)
+  - Couleur de texte personnalisable
+  - Opacité des lignes réglable (0-100%)
+- 💾 Export en image (PNG)
+- 🖨️ Fonction d'impression optimisée
+- 📱 Canvas 800x1000px adapté à l'affichage
+
+**Cas d'usage :**
+- ✅ Créer des feuilles d'exercices personnalisées
+- ✅ Modèles de cahier pour écriture
+- ✅ Exercices de calligraphie
+- ✅ Feuilles lignées imprimables
+- ✅ Support pour travaux d'écriture
+
+**Technologie :** Canvas API pour le rendu des lignes Seyes avec textarea overlay
+
 ## 📋 Prérequis
 
 ### Pour le déploiement (enseignant)
@@ -474,6 +499,6 @@ Merci aux enseignants qui testent et améliorent cet outil pédagogique !
 
 ---
 
-**Version :** 1.0.0
+**Version :** 2.1.0
 **Dernière mise à jour :** 2025-11-17
-**Technologies :** React + TypeScript + Docker + Web Audio API
+**Technologies :** React + TypeScript + Docker + Web Audio API + Canvas API
