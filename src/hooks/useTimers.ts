@@ -10,6 +10,61 @@ export interface Timer {
   createdAt: number
 }
 
+// Bip triple joué à la fin d'un timer ; hors du hook car sans état
+function playAlarm() {
+  // Créer un son de bip simple
+  const audioContext = new AudioContext()
+  const oscillator = audioContext.createOscillator()
+  const gainNode = audioContext.createGain()
+
+  oscillator.connect(gainNode)
+  gainNode.connect(audioContext.destination)
+
+  oscillator.frequency.value = 800 // Fréquence en Hz
+  oscillator.type = 'sine'
+
+  gainNode.gain.setValueAtTime(0.3, audioContext.currentTime)
+  gainNode.gain.exponentialRampToValueAtTime(
+    0.01,
+    audioContext.currentTime + 0.5
+  )
+
+  oscillator.start(audioContext.currentTime)
+  oscillator.stop(audioContext.currentTime + 0.5)
+
+  // Répéter 3 fois
+  setTimeout(() => {
+    const osc2 = audioContext.createOscillator()
+    const gain2 = audioContext.createGain()
+    osc2.connect(gain2)
+    gain2.connect(audioContext.destination)
+    osc2.frequency.value = 800
+    osc2.type = 'sine'
+    gain2.gain.setValueAtTime(0.3, audioContext.currentTime)
+    gain2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5)
+    osc2.start()
+    osc2.stop(audioContext.currentTime + 0.5)
+  }, 600)
+
+  setTimeout(() => {
+    const osc3 = audioContext.createOscillator()
+    const gain3 = audioContext.createGain()
+    osc3.connect(gain3)
+    gain3.connect(audioContext.destination)
+    osc3.frequency.value = 800
+    osc3.type = 'sine'
+    gain3.gain.setValueAtTime(0.3, audioContext.currentTime)
+    gain3.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5)
+    osc3.start()
+    osc3.stop(audioContext.currentTime + 0.5)
+  }, 1200)
+
+  // Libérer le contexte une fois les 3 bips joués (limite navigateur)
+  setTimeout(() => {
+    audioContext.close().catch(() => {})
+  }, 2000)
+}
+
 export function useTimers() {
   const [timers, setTimers] = useState<Timer[]>([])
   const intervalRef = useRef<number | null>(null)
@@ -53,60 +108,6 @@ export function useTimers() {
       playAlarm()
     }
   }, [timers])
-
-  const playAlarm = () => {
-    // Créer un son de bip simple
-    const audioContext = new AudioContext()
-    const oscillator = audioContext.createOscillator()
-    const gainNode = audioContext.createGain()
-
-    oscillator.connect(gainNode)
-    gainNode.connect(audioContext.destination)
-
-    oscillator.frequency.value = 800 // Fréquence en Hz
-    oscillator.type = 'sine'
-
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime)
-    gainNode.gain.exponentialRampToValueAtTime(
-      0.01,
-      audioContext.currentTime + 0.5
-    )
-
-    oscillator.start(audioContext.currentTime)
-    oscillator.stop(audioContext.currentTime + 0.5)
-
-    // Répéter 3 fois
-    setTimeout(() => {
-      const osc2 = audioContext.createOscillator()
-      const gain2 = audioContext.createGain()
-      osc2.connect(gain2)
-      gain2.connect(audioContext.destination)
-      osc2.frequency.value = 800
-      osc2.type = 'sine'
-      gain2.gain.setValueAtTime(0.3, audioContext.currentTime)
-      gain2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5)
-      osc2.start()
-      osc2.stop(audioContext.currentTime + 0.5)
-    }, 600)
-
-    setTimeout(() => {
-      const osc3 = audioContext.createOscillator()
-      const gain3 = audioContext.createGain()
-      osc3.connect(gain3)
-      gain3.connect(audioContext.destination)
-      osc3.frequency.value = 800
-      osc3.type = 'sine'
-      gain3.gain.setValueAtTime(0.3, audioContext.currentTime)
-      gain3.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5)
-      osc3.start()
-      osc3.stop(audioContext.currentTime + 0.5)
-    }, 1200)
-
-    // Libérer le contexte une fois les 3 bips joués (limite navigateur)
-    setTimeout(() => {
-      audioContext.close().catch(() => {})
-    }, 2000)
-  }
 
   const addTimer = (name: string, durationMinutes: number) => {
     const newTimer: Timer = {
