@@ -102,6 +102,11 @@ export function useTimers() {
       osc3.start()
       osc3.stop(audioContext.currentTime + 0.5)
     }, 1200)
+
+    // Libérer le contexte une fois les 3 bips joués (limite navigateur)
+    setTimeout(() => {
+      audioContext.close().catch(() => {})
+    }, 2000)
   }
 
   const addTimer = (name: string, durationMinutes: number) => {
