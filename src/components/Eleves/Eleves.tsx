@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './Eleves.css'
 import { loadArray } from '../../utils/storage'
 
@@ -12,6 +12,11 @@ function Eleves() {
   const [students, setStudents] = useState<Student[]>(() => loadArray('students', []))
   const [newName, setNewName] = useState('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const pickTimeoutRef = useRef<number | null>(null)
+
+  useEffect(() => () => {
+    if (pickTimeoutRef.current) clearTimeout(pickTimeoutRef.current)
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('students', JSON.stringify(students))
@@ -27,7 +32,8 @@ function Eleves() {
     if (students.length === 0) return
     const random = students[Math.floor(Math.random() * students.length)]
     setSelectedId(random.id)
-    setTimeout(() => setSelectedId(null), 3000)
+    if (pickTimeoutRef.current) clearTimeout(pickTimeoutRef.current)
+    pickTimeoutRef.current = window.setTimeout(() => setSelectedId(null), 3000)
   }
 
   const addStar = (id: string) => {
