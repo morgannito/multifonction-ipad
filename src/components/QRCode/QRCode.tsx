@@ -3,6 +3,9 @@ import './QRCode.css'
 
 type QRType = 'url' | 'text' | 'wifi'
 
+// Échappe \ ; , : " exigés par le format WIFI: des QR codes
+const escapeWifi = (value: string) => value.replace(/([\\;,:"])/g, '\\$1')
+
 export default function QRCodeGenerator() {
   const [qrType, setQrType] = useState<QRType>('url')
   const [urlInput, setUrlInput] = useState('')
@@ -41,7 +44,7 @@ export default function QRCodeGenerator() {
           return
         }
         // Format: WIFI:T:WPA;S:mynetwork;P:mypassword;;
-        data = `WIFI:T:${wifiSecurity};S:${wifiSSID};P:${wifiPassword};;`
+        data = `WIFI:T:${wifiSecurity};S:${escapeWifi(wifiSSID)};P:${escapeWifi(wifiPassword)};;`
         break
     }
 
