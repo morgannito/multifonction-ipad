@@ -98,7 +98,7 @@ export default function Planning() {
     }
 
     const activity: Activity = {
-      id: Date.now().toString(),
+      id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
       name: newActivity.name,
       startTime: newActivity.startTime,
       endTime: newActivity.endTime,
