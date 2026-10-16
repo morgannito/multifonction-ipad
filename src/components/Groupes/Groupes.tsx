@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Groupes.css'
+import { loadArray } from '../../utils/storage'
 
 interface Student {
   id: string
@@ -18,10 +19,9 @@ const groupColors = [
 ]
 
 export default function Groupes() {
-  const [studentsList, setStudentsList] = useState<Student[]>(() => {
-    const saved = localStorage.getItem('students-list-groupes')
-    return saved ? JSON.parse(saved) : []
-  })
+  const [studentsList, setStudentsList] = useState<Student[]>(() =>
+    loadArray('students-list-groupes', [])
+  )
   const [newStudentName, setNewStudentName] = useState('')
   const [groups, setGroups] = useState<Group[]>([])
   const [groupMode, setGroupMode] = useState<'number' | 'size'>('number')
