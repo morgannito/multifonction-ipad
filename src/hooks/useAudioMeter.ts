@@ -23,6 +23,7 @@ export function useAudioMeter(): UseAudioMeterReturn {
   const gainNodeRef = useRef<GainNode | null>(null)
   const streamRef = useRef<MediaStream | null>(null)
   const animationFrameRef = useRef<number | null>(null)
+  const startingRef = useRef(false)
 
   const updateNoiseLevel = useCallback((db: number) => {
     if (db < 40) {
@@ -71,6 +72,9 @@ export function useAudioMeter(): UseAudioMeterReturn {
   }, [updateNoiseLevel])
 
   const startMonitoring = useCallback(async () => {
+    // Empêche un second getUserMedia (double-clic) qui orphelinerait le premier micro
+    if (startingRef.current || streamRef.current) return
+    startingRef.current = true
     try {
       setError(null)
 
@@ -115,6 +119,8 @@ export function useAudioMeter(): UseAudioMeterReturn {
           : 'Impossible d\'accéder au microphone. Vérifiez les permissions.'
       )
       stopMonitoring()
+    } finally {
+      startingRef.current = false
     }
   }, [analyzeAudio])
 
