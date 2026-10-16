@@ -29,7 +29,8 @@ function TimerCard({
   const totalMinutes = Math.floor(timer.duration / 60)
 
   // Calculer le pourcentage pour le cercle
-  const percentage = (timer.remaining / timer.duration) * 100
+  const percentage =
+    timer.duration > 0 ? (timer.remaining / timer.duration) * 100 : 0
   const circumference = 2 * Math.PI * 90 // rayon de 90
   const strokeDashoffset = circumference - (percentage / 100) * circumference
 
@@ -237,7 +238,7 @@ function Timer() {
               <input
                 type="number"
                 value={newTimerDuration}
-                onChange={(e) => setNewTimerDuration(Number(e.target.value))}
+                onChange={(e) => setNewTimerDuration(Math.min(120, Math.max(1, Number(e.target.value) || 1)))}
                 min={1}
                 max={120}
               />
