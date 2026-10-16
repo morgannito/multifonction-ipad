@@ -19,7 +19,7 @@ function Eleves() {
 
   const addStudent = () => {
     if (!newName.trim()) return
-    setStudents([...students, { id: Date.now().toString(), name: newName.trim(), stars: 0 }])
+    setStudents([...students, { id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, name: newName.trim(), stars: 0 }])
     setNewName('')
   }
 
