@@ -45,6 +45,8 @@ function TimerCard({
   const handleSaveName = () => {
     if (editName.trim()) {
       onUpdateName(editName.trim())
+    } else {
+      setEditName(timer.name)
     }
     setIsEditingName(false)
   }
