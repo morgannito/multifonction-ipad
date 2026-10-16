@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTimers, Timer as TimerType } from '../../hooks/useTimers'
 import './Timer.css'
+import { clampDuration } from '../../utils/duration'
 
 interface TimerCardProps {
   timer: TimerType
@@ -240,7 +241,7 @@ function Timer() {
               <input
                 type="number"
                 value={newTimerDuration}
-                onChange={(e) => setNewTimerDuration(Math.min(120, Math.max(1, Number(e.target.value) || 1)))}
+                onChange={(e) => setNewTimerDuration(clampDuration(e.target.value))}
                 min={1}
                 max={120}
               />

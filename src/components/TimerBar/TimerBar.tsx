@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTimers } from '../../hooks/useTimers'
 import './TimerBar.css'
+import { clampDuration } from '../../utils/duration'
 
 function TimerBar() {
   const {
@@ -92,7 +93,7 @@ function TimerBar() {
             <input
               type="number"
               value={newTimerDuration}
-              onChange={(e) => setNewTimerDuration(Math.min(120, Math.max(1, Number(e.target.value) || 1)))}
+              onChange={(e) => setNewTimerDuration(clampDuration(e.target.value))}
               min={1}
               max={120}
             />
