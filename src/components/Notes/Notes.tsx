@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Notes.css'
+import { loadArray } from '../../utils/storage'
 
 interface Note {
   id: string
@@ -10,10 +11,7 @@ interface Note {
 }
 
 function Notes() {
-  const [notes, setNotes] = useState<Note[]>(() => {
-    const saved = localStorage.getItem('classroom-notes')
-    return saved ? JSON.parse(saved) : []
-  })
+  const [notes, setNotes] = useState<Note[]>(() => loadArray('classroom-notes', []))
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editTitle, setEditTitle] = useState('')
   const [editContent, setEditContent] = useState('')
