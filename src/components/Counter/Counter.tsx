@@ -79,7 +79,7 @@ function Counter() {
               type="number"
               value={minValue}
               onChange={(e) => {
-                const val = parseInt(e.target.value) || 0
+                const val = Math.max(0, parseInt(e.target.value) || 0)
                 if (val < maxValue) setMinValue(val)
               }}
               className="value-input"
