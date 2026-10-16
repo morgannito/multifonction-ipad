@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Eleves.css'
+import { loadArray } from '../../utils/storage'
 
 interface Student {
   id: string
@@ -8,10 +9,7 @@ interface Student {
 }
 
 function Eleves() {
-  const [students, setStudents] = useState<Student[]>(() => {
-    const saved = localStorage.getItem('students')
-    return saved ? JSON.parse(saved) : []
-  })
+  const [students, setStudents] = useState<Student[]>(() => loadArray('students', []))
   const [newName, setNewName] = useState('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
 
