@@ -4,6 +4,11 @@ import './QRCode.css'
 type QRType = 'url' | 'text' | 'wifi'
 
 // Échappe \ ; , : " exigés par le format WIFI: des QR codes
+const HTML_ESCAPES: Record<string, string> = {
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+}
+const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (c) => HTML_ESCAPES[c])
+
 const escapeWifi = (value: string) => value.replace(/([\\;,:"])/g, '\\$1')
 
 export default function QRCodeGenerator() {
@@ -106,7 +111,7 @@ export default function QRCodeGenerator() {
         <body>
           <img src="${getQRCodeURL()}" alt="QR Code" />
           <div class="info">
-            <p><strong>Données :</strong> ${generatedData}</p>
+            <p><strong>Données :</strong> ${escapeHtml(generatedData)}</p>
           </div>
         </body>
       </html>
