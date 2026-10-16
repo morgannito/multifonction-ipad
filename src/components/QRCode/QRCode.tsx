@@ -3,12 +3,12 @@ import './QRCode.css'
 
 type QRType = 'url' | 'text' | 'wifi'
 
-// Échappe \ ; , : " exigés par le format WIFI: des QR codes
 const HTML_ESCAPES: Record<string, string> = {
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (c) => HTML_ESCAPES[c])
 
+// Échappe \ ; , : " exigés par le format WIFI: des QR codes
 const escapeWifi = (value: string) => value.replace(/([\\;,:"])/g, '\\$1')
 
 export default function QRCodeGenerator() {
