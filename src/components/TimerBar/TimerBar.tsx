@@ -149,7 +149,7 @@ function TimerBar() {
       {/* Liste des timers */}
       <div className="timerbars-list">
         {timers.map((timer) => {
-          const percentage = (timer.remaining / timer.duration) * 100
+          const percentage = timer.duration > 0 ? (timer.remaining / timer.duration) * 100 : 0
           const isFinished = timer.remaining === 0
 
           return (
