@@ -15,12 +15,15 @@ function Notes() {
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editTitle, setEditTitle] = useState('')
   const [editContent, setEditContent] = useState('')
+  const [saveFailed, setSaveFailed] = useState(false)
 
   useEffect(() => {
     try {
       localStorage.setItem('classroom-notes', JSON.stringify(notes))
+      setSaveFailed(false)
     } catch (err) {
       console.warn('Sauvegarde des notes impossible (quota ?)', err)
+      setSaveFailed(true)
     }
   }, [notes])
 
@@ -63,6 +66,11 @@ function Notes() {
     <div className="notes-app fade-in">
       <h1 className="notes-title">📝 Notes</h1>
       <p className="notes-subtitle">Pense-bête pour la classe</p>
+      {saveFailed && (
+        <p className="notes-subtitle" role="alert">
+          ⚠️ Sauvegarde impossible (stockage plein) : les dernières modifications seront perdues au rechargement.
+        </p>
+      )}
 
       <button className="btn-add-note" onClick={addNote}>➕ Nouvelle Note</button>
 
