@@ -16,8 +16,11 @@ const defaultTeams: Team[] = [
   { id: '4', name: 'Équipe Jaune', points: 0, color: '#f59e0b' },
 ]
 
+const isTeam = (t: Record<string, unknown>) =>
+  typeof t.id === 'string' && typeof t.name === 'string' && typeof t.points === 'number'
+
 export default function Points() {
-  const [teams, setTeams] = useState<Team[]>(() => loadArray('teams-points', defaultTeams))
+  const [teams, setTeams] = useState<Team[]>(() => loadArray('teams-points', defaultTeams, isTeam))
   const [showWinner, setShowWinner] = useState(false)
   const winnerTimeoutRef = useRef<number | null>(null)
 
