@@ -27,7 +27,7 @@ function Sac() {
 
   const addItem = () => {
     if (!newItem.trim()) return
-    setItems([...items, { id: Date.now().toString(), name: newItem, icon: newIcon, required: true }])
+    setItems([...items, { id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, name: newItem, icon: newIcon, required: true }])
     setNewItem('')
   }
 
