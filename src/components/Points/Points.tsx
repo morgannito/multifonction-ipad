@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './Points.css'
 import { loadArray } from '../../utils/storage'
 
@@ -19,6 +19,11 @@ const defaultTeams: Team[] = [
 export default function Points() {
   const [teams, setTeams] = useState<Team[]>(() => loadArray('teams-points', defaultTeams))
   const [showWinner, setShowWinner] = useState(false)
+  const winnerTimeoutRef = useRef<number | null>(null)
+
+  useEffect(() => () => {
+    if (winnerTimeoutRef.current) clearTimeout(winnerTimeoutRef.current)
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('teams-points', JSON.stringify(teams))
@@ -65,7 +70,8 @@ export default function Points() {
 
   const celebrateWinner = () => {
     setShowWinner(true)
-    setTimeout(() => setShowWinner(false), 5000)
+    if (winnerTimeoutRef.current) clearTimeout(winnerTimeoutRef.current)
+    winnerTimeoutRef.current = window.setTimeout(() => setShowWinner(false), 5000)
   }
 
   const sortedTeams = getSortedTeams()
