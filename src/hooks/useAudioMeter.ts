@@ -24,6 +24,7 @@ export function useAudioMeter(): UseAudioMeterReturn {
   const streamRef = useRef<MediaStream | null>(null)
   const animationFrameRef = useRef<number | null>(null)
   const startingRef = useRef(false)
+  const startTokenRef = useRef(0)
 
   const updateNoiseLevel = useCallback((db: number) => {
     if (db < 40) {
@@ -75,11 +76,17 @@ export function useAudioMeter(): UseAudioMeterReturn {
     // Empêche un second getUserMedia (double-clic) qui orphelinerait le premier micro
     if (startingRef.current || streamRef.current) return
     startingRef.current = true
+    // Un stopMonitoring pendant un await incrémente le jeton : le démarrage en cours s'abandonne
+    const token = ++startTokenRef.current
     try {
       setError(null)
 
       // Demander l'accès au microphone
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      if (token !== startTokenRef.current) {
+        stream.getTracks().forEach((track) => track.stop())
+        return
+      }
       streamRef.current = stream
 
       // Créer le contexte audio
@@ -88,6 +95,8 @@ export function useAudioMeter(): UseAudioMeterReturn {
       // iPad Safari : créé après un await, le contexte démarre « suspended »
       if (audioContext.state === 'suspended') {
         await audioContext.resume()
+        // stopMonitoring a déjà fermé stream et contexte via les refs
+        if (token !== startTokenRef.current) return
       }
 
       // Créer l'analyseur avec paramètres optimisés pour la sensibilité
@@ -125,6 +134,7 @@ export function useAudioMeter(): UseAudioMeterReturn {
   }, [analyzeAudio])
 
   const stopMonitoring = useCallback(() => {
+    startTokenRef.current++
     // Arrêter l'animation
     if (animationFrameRef.current !== null) {
       cancelAnimationFrame(animationFrameRef.current)
