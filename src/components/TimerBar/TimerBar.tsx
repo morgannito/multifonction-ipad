@@ -92,7 +92,7 @@ function TimerBar() {
             <input
               type="number"
               value={newTimerDuration}
-              onChange={(e) => setNewTimerDuration(Number(e.target.value))}
+              onChange={(e) => setNewTimerDuration(Math.min(120, Math.max(1, Number(e.target.value) || 1)))}
               min={1}
               max={120}
             />
