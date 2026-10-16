@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './Eleves.css'
+import { newId } from '../../utils/ids'
 import { loadArray } from '../../utils/storage'
 
 interface Student {
@@ -24,7 +25,7 @@ function Eleves() {
 
   const addStudent = () => {
     if (!newName.trim()) return
-    setStudents([...students, { id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, name: newName.trim(), stars: 0 }])
+    setStudents([...students, { id: newId(), name: newName.trim(), stars: 0 }])
     setNewName('')
   }
 

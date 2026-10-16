@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Sac.css'
+import { newId } from '../../utils/ids'
 
 const defaultItems = [
   { id: '1', name: 'Cahier', icon: '📓', required: true },
@@ -27,7 +28,7 @@ function Sac() {
 
   const addItem = () => {
     if (!newItem.trim()) return
-    setItems([...items, { id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, name: newItem, icon: newIcon, required: true }])
+    setItems([...items, { id: newId(), name: newItem, icon: newIcon, required: true }])
     setNewItem('')
   }
 

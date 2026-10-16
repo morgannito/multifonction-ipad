@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Planning.css'
+import { newId } from '../../utils/ids'
 
 interface Activity {
   id: string
@@ -98,7 +99,7 @@ export default function Planning() {
     }
 
     const activity: Activity = {
-      id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      id: newId(),
       name: newActivity.name,
       startTime: newActivity.startTime,
       endTime: newActivity.endTime,
