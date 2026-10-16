@@ -81,6 +81,10 @@ export function useAudioMeter(): UseAudioMeterReturn {
       // Créer le contexte audio
       const audioContext = new AudioContext()
       audioContextRef.current = audioContext
+      // iPad Safari : créé après un await, le contexte démarre « suspended »
+      if (audioContext.state === 'suspended') {
+        await audioContext.resume()
+      }
 
       // Créer l'analyseur avec paramètres optimisés pour la sensibilité
       const analyser = audioContext.createAnalyser()
