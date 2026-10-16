@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Points.css'
+import { loadArray } from '../../utils/storage'
 
 interface Team {
   id: string
@@ -16,10 +17,7 @@ const defaultTeams: Team[] = [
 ]
 
 export default function Points() {
-  const [teams, setTeams] = useState<Team[]>(() => {
-    const saved = localStorage.getItem('teams-points')
-    return saved ? JSON.parse(saved) : defaultTeams
-  })
+  const [teams, setTeams] = useState<Team[]>(() => loadArray('teams-points', defaultTeams))
   const [showWinner, setShowWinner] = useState(false)
 
   useEffect(() => {
