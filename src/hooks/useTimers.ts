@@ -17,20 +17,13 @@ export function useTimers() {
   // Mettre à jour tous les timers actifs chaque seconde
   useEffect(() => {
     intervalRef.current = window.setInterval(() => {
-      setTimers((prevTimers) => {
-        let hasFinished = false
-
-        const updatedTimers = prevTimers.map((timer) => {
+      setTimers((prevTimers) =>
+        prevTimers.map((timer) => {
           if (!timer.isRunning || timer.remaining <= 0) {
             return timer
           }
 
           const newRemaining = timer.remaining - 1
-
-          // Vérifier si un timer vient de se terminer
-          if (newRemaining === 0) {
-            hasFinished = true
-          }
 
           return {
             ...timer,
@@ -38,14 +31,7 @@ export function useTimers() {
             isRunning: newRemaining > 0,
           }
         })
-
-        // Jouer l'alarme si un timer est terminé
-        if (hasFinished) {
-          playAlarm()
-        }
-
-        return updatedTimers
-      })
+      )
     }, 1000)
 
     return () => {
@@ -54,6 +40,19 @@ export function useTimers() {
       }
     }
   }, [])
+
+  // Jouer l'alarme hors de l'updater (pur) quand un timer passe à 0
+  const prevRemainingRef = useRef<Map<string, number>>(new Map())
+  useEffect(() => {
+    const prev = prevRemainingRef.current
+    const hasFinished = timers.some(
+      (t) => t.remaining === 0 && (prev.get(t.id) ?? 0) > 0
+    )
+    prevRemainingRef.current = new Map(timers.map((t) => [t.id, t.remaining]))
+    if (hasFinished) {
+      playAlarm()
+    }
+  }, [timers])
 
   const playAlarm = () => {
     // Créer un son de bip simple
