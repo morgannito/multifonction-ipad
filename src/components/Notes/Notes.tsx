@@ -17,7 +17,11 @@ function Notes() {
   const [editContent, setEditContent] = useState('')
 
   useEffect(() => {
-    localStorage.setItem('classroom-notes', JSON.stringify(notes))
+    try {
+      localStorage.setItem('classroom-notes', JSON.stringify(notes))
+    } catch (err) {
+      console.warn('Sauvegarde des notes impossible (quota ?)', err)
+    }
   }, [notes])
 
   const addNote = () => {
