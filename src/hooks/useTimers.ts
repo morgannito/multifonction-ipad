@@ -13,19 +13,6 @@ export interface Timer {
 export function useTimers() {
   const [timers, setTimers] = useState<Timer[]>([])
   const intervalRef = useRef<number | null>(null)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
-
-  // Créer l'audio pour l'alarme au montage
-  useEffect(() => {
-    // Créer un son simple avec Web Audio API
-    audioRef.current = new Audio()
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current = null
-      }
-    }
-  }, [])
 
   // Mettre à jour tous les timers actifs chaque seconde
   useEffect(() => {
